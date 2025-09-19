@@ -1,17 +1,18 @@
 # Simple Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+This page is designed to be a little helper for you, a simple space where you can create a To-do list.
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+Tasks can be added via the "Add Todo" button, a form will appear asking you what your task is as well as the due date of that task. When you complete your task, the checkbox can be clicked to cross the item off your list.
 
 ## Technology
 
 Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+<img src="./images/todo-page.png"></img>
 
 ## Deployment
 
 This project is deployed on GitHub Pages:
 
-- ADD LINK HERE
+- (https://scarylyn.github.io/se_project_todo-app/)
