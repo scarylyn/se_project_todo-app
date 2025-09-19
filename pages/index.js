@@ -24,6 +24,12 @@ const generateTodo = (data) => {
   return todoElement;
 };
 
+const addTodo = (todoData) => {
+  const todo = generateTodo(todoData);
+  todosList.append(todo);
+  return todo;
+};
+
 addTodoButton.addEventListener("click", () => {
   openModal(addTodoPopup);
 });
@@ -33,10 +39,10 @@ addTodoCloseBtn.addEventListener("click", () => {
 });
 
 addTodoForm.addEventListener("submit", (event) => {
-  if (!addTodoForm.checkValidity());
-  evt.preventDefault();
-  const name = evt.target.name.value;
-  const dateInput = evt.target.date.value;
+  if (!addTodoForm.checkValidity()) return;
+  event.preventDefault();
+  const name = event.target.name.value;
+  const dateInput = event.target.date.value;
 
   // Create a date object and adjust for timezone
   const date = new Date(dateInput);
@@ -45,14 +51,13 @@ addTodoForm.addEventListener("submit", (event) => {
   const id = uuidv4();
   const values = { name, date, id };
   const todo = generateTodo(values);
-  todosList.append(todo);
+  addTodo(todo);
   newTodoValidator.resetValidation();
   closeModal(addTodoPopup);
 });
 
 initialTodos.forEach((item) => {
-  const todo = generateTodo(item);
-  todosList.append(todo);
+  addTodo(item);
 });
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
