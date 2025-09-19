@@ -23,19 +23,32 @@ class Todo {
     todoLabel.setAttribute("for", `todo-${this._data.id}`);
   }
 
+  _generateDueDate() {
+    if (!isNaN(this._data.date)) {
+      this._todoDate.textContent = `Due: ${this._data.date.toLocaleString(
+        "en-US",
+        {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }
+      )}`;
+    }
+  }
+
   getView() {
     this._todoElement = this._templateElement.content
       .querySelector(".todo")
       .cloneNode(true);
 
     const todoNameEl = this._todoElement.querySelector(".todo__name");
-    const todoDate = this._todoElement.querySelector(".todo__date");
+    this._todoDate = this._todoElement.querySelector(".todo__date");
     this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
 
     todoNameEl.textContent = this._data.name;
-
     this._generateCheckboxEl();
     this._setEventListeners();
+    this._generateDueDate();
 
     return this._todoElement;
   }
