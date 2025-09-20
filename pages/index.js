@@ -26,8 +26,7 @@ const generateTodo = (data) => {
 
 const addTodo = (todoData) => {
   const todo = generateTodo(todoData);
-  todosList.append(todo);
-  return todo;
+  return todosList.append(todo);
 };
 
 addTodoButton.addEventListener("click", () => {
@@ -50,8 +49,7 @@ addTodoForm.addEventListener("submit", (event) => {
 
   const id = uuidv4();
   const values = { name, date, id };
-  const todo = generateTodo(values);
-  addTodo(todo);
+  addTodo(values);
   newTodoValidator.resetValidation();
   closeModal(addTodoPopup);
 });
