@@ -15,11 +15,12 @@ const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
-  handleFormSubmit: () => {
+  handleFormSubmit: (inputValues) => {
     if (!addTodoForm.checkValidity()) return;
-    const values = addTodoPopup._getInputValues();
-    const name = values.name;
-    const date = new Date(values.date);
+    let { name, date } = inputValues;
+    // const values = addTodoPopup._getInputValues();
+    date = new Date(date);
+    console.log(date, typeof date);
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
     const id = uuidv4();
     const input = { id, name, date };

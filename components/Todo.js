@@ -1,10 +1,18 @@
 class Todo {
-  constructor(data, selector, handleCheck, handleDelete, updateTotal) {
+  constructor(
+    data,
+    selector,
+    handleCheck,
+    handleDelete,
+    escapeHandler,
+    updateTotal
+  ) {
     this._data = data;
     this._templateElement = document.querySelector(selector);
     this._handleCheck = handleCheck;
     this._handleDelete = handleDelete;
     this._updateTotal = updateTotal;
+    this._escapeHandler = escapeHandler;
   }
 
   _setEventListeners() {
